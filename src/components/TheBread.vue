@@ -10,8 +10,6 @@
   export default {
     name:'TheBread',
     created(){
-      console.log('999')
-
     },
     computed:{
       breadcrumb(){

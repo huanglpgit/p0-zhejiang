@@ -1,0 +1,800 @@
+[v-cloak] {
+    display: none
+}
+@btn-color-pri: #147BD1; //默认状态
+@btn-color-pri-hover: #0090dd; //悬停状态
+@btn-color-pri-active: #006ab7; //点击状态
+@color-pri: #147BD1;
+@border09: 1px solid rgba(0, 0, 0, 0.09);
+@border: 1px solid rgba(0, 0, 0, 0.15);
+@border-color: rgba(0, 0, 0, 0.15);
+@box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+@header-bg-color: #191919;
+@fff-85: rgba(255, 255, 255, 0.85); //白色0.85
+.td-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ant-tag.tag-default, .ant-tag.tag-default a, .ant-tag.tag-default a:hover{
+    color:rgba(0, 0, 0, 0.25);
+}
+.ant-table-body {
+    overflow-x: auto !important;
+}
+
+.ant-table-body table {
+    table-layout: fixed;
+}
+
+.ant-table-body table td {
+    .td-ellipsis;
+}
+
+a {
+    color: @color-pri;
+}
+
+.gi-box-shadow {
+    box-shadow: @box-shadow;
+}
+
+.ant-btn-primary {
+    background-color: @btn-color-pri;
+    border-color: @btn-color-pri;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+    background-color: @btn-color-pri-hover;
+    border-color: @btn-color-pri-hover;
+}
+
+.ant-btn-primary:active,
+.ant-btn-primary.active {
+    background-color: @btn-color-pri-active;
+    border-color: @btn-color-pri-active;
+}
+
+.ant-switch-checked {
+    background-color: @btn-color-pri;
+}
+
+//table重写
+.ant-table-thead>tr>th .ant-table-column-sorter-up.on,
+.ant-table-thead>tr>th .ant-table-column-sorter-down.on {
+    color: @color-pri;
+}
+
+
+/*ant-design 样式重写*/
+
+//导航菜单
+// .ant-menu-item, .ant-menu-submenu-title{
+//     margin:20px;
+// }
+.ant-menu-dark .leve1-has-children{
+    margin:0 10px;
+}
+.ant-menu-dark .leve1-has-children .ant-menu-submenu-arrow{
+    margin:0 0 0 20px;
+}
+.ant-menu-dark  .leve1-has-children.ant-menu-submenu-selected .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before,
+.ant-menu-dark  .leve1-has-children.ant-menu-submenu-selected .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after,
+.ant-menu-dark  .leve1-has-children .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before,
+.ant-menu-dark  .leve1-has-children .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after{
+    background: @color-pri;
+}
+.ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::before,
+.ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::after{
+    background: @color-pri;
+    position: absolute;
+    width: 6px;
+    height: 1.5px;
+    top: 26px;
+    border-radius: 2px;
+    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    content: '';
+}
+.ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::before {
+    transform: rotate(-45deg) translateY(2px);
+}
+
+.ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::after,
+{
+    transform: rotate(45deg) translateY(2px);
+}
+.submenu-level2.ant-menu-submenu.ant-menu-submenu-vertical.ant-menu-submenu-selected{
+     background-color: rgba(255,255,255,0.09) !important;
+}
+.ant-menu-submenu-popup li:hover{
+    background-color: rgba(255,255,255,0.09) !important;
+}
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
+    background-color: rgba(255,255,255,0.09) !important;
+}
+.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow,
+.ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow {
+    opacity: 0.85;
+}
+
+.ant-menu-dark .ant-menu-item,
+.ant-menu-dark .ant-menu-item-group-title,
+.ant-menu-dark .ant-menu-item>a {
+    color: @fff-85;
+}
+
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub {
+    color: @fff-85;
+    background: @header-bg-color;
+    border-radius: 0;
+}
+
+.ant-menu-dark.ant-menu-horizontal>.ant-menu-item,
+.ant-menu-dark.ant-menu-horizontal>.ant-menu-submenu {
+    border-color: @header-bg-color;
+    border-bottom: 2px solid transparent;
+}
+
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-item-active,
+.ant-menu-dark .ant-menu-submenu-active,
+.ant-menu-dark .ant-menu-submenu-open,
+.ant-menu-dark .ant-menu-submenu-selected,
+.ant-menu-dark .ant-menu-submenu-title:hover {
+    color: @color-pri !important;
+}
+
+.ant-menu-dark .submenu-level2.ant-menu-submenu-selected,
+.ant-menu-dark .submenu-level2 .ant-menu-submenu-title:hover {
+    color: #fff !important;
+}
+
+.ant-menu-horizontal>.ant-menu-item:hover,
+.ant-menu-horizontal>.ant-menu-submenu:hover,
+.ant-menu-horizontal>.ant-menu-item-active,
+.ant-menu-horizontal>.ant-menu-submenu-active,
+.ant-menu-horizontal>.ant-menu-item-open,
+.ant-menu-horizontal>.ant-menu-submenu-open,
+.ant-menu-horizontal>.ant-menu-item-selected,
+.ant-menu-horizontal>.ant-menu-submenu-selected {
+    color: @color-pri !important;
+    border-bottom: 2px solid @color-pri !important;
+}
+
+.ant-select-auto-complete.ant-select .ant-input:focus,
+.ant-select-auto-complete.ant-select .ant-input:hover,
+.ant-input:hover {
+    border-color: @color-pri;
+}
+
+//分页组件
+.ant-pagination-item-active a,
+.ant-pagination-item:focus a,
+.ant-pagination-item:hover a {
+    color: @color-pri;
+}
+
+.ant-pagination-item-active,
+.ant-pagination-item:focus,
+.ant-pagination-item:hover,
+.ant-select-selection:hover {
+    border-color: @color-pri;
+}
+
+//日期
+.ant-calendar-selected-date .ant-calendar-date,
+.ant-calendar-selected-start-date .ant-calendar-date,
+.ant-calendar-selected-end-date .ant-calendar-date {
+    background: @color-pri;
+}
+
+.ant-calendar-today .ant-calendar-date {
+    border-color: @color-pri;
+}
+
+//.ant-calendar-range .ant-calendar-input-wrap{
+//  display: none;
+//}
+.ant-calendar-year-panel-header .ant-calendar-year-panel-prev-century-btn,
+.ant-calendar-year-panel-header .ant-calendar-year-panel-next-century-btn,
+.ant-calendar-year-panel-header .ant-calendar-year-panel-prev-decade-btn,
+.ant-calendar-year-panel-header .ant-calendar-year-panel-next-decade-btn,
+.ant-calendar-year-panel-header .ant-calendar-year-panel-prev-month-btn,
+.ant-calendar-year-panel-header .ant-calendar-year-panel-next-month-btn,
+.ant-calendar-year-panel-header .ant-calendar-year-panel-prev-year-btn,
+.ant-calendar-year-panel-header .ant-calendar-year-panel-next-year-btn {
+    font-size: 24px;
+}
+
+.ant-calendar-picker:hover .ant-calendar-picker-input:not(.ant-input-disabled) {
+    border-color: @color-pri;
+}
+
+.ant-calendar-header .ant-calendar-prev-century-btn,
+.ant-calendar-header .ant-calendar-next-century-btn,
+.ant-calendar-header .ant-calendar-prev-decade-btn,
+.ant-calendar-header .ant-calendar-next-decade-btn,
+.ant-calendar-header .ant-calendar-prev-month-btn,
+.ant-calendar-header .ant-calendar-next-month-btn,
+.ant-calendar-header .ant-calendar-prev-year-btn,
+.ant-calendar-header .ant-calendar-next-year-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-prev-century-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-next-century-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-prev-decade-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-next-decade-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-prev-month-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-next-month-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-prev-year-btn,
+.ant-calendar-month-panel-header .ant-calendar-month-panel-next-year-btn {
+    font-size: 24px;
+}
+
+//标签
+.ant-tag-red {
+    background: rgba(245, 34, 45, 0.10);
+    border-color: rgba(245, 34, 45, 0.45);
+}
+
+.ant-tag-blue {
+    background: rgba(24, 144, 255, 0.10);
+    border-color: rgba(24, 144, 255, 0.45);
+}
+
+//加载中
+.gi-loading {
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+    height: calc(~"100vh - 86px");
+    top: 86px;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ant-spin {
+        width: 200px;
+        padding: 36px 0;
+        background-color: rgba(0, 0, 0, 0.45);
+        color: #fff;
+    }
+}
+
+.dropdown-auto-width.ant-select-dropdown {
+    min-width: 200px;
+    width: auto !important;
+}
+
+.ant-empty-image img {
+    margin: 0 auto;
+}
+
+.ant-switch {
+    height: 32px;
+    min-width: 60px;
+    line-height: 32px;
+}
+
+.ant-switch::after {
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 16px;
+}
+
+.ant-switch-checked::after {
+    left: 100%;
+    margin-left: -1px;
+    transform: translateX(-100%);
+}
+
+.ant-table-bordered .ant-table-header>table,
+.ant-table-bordered .ant-table-body>table,
+.ant-table-bordered .ant-table-fixed-left table,
+.ant-table-bordered .ant-table-fixed-right table {
+    border-color: @border-color;
+}
+
+.ant-table-thead>tr>th,
+.ant-table-tbody>tr>td {
+    padding: 11px 16px;
+}
+
+.ant-message-notice-content {
+    .gi-box-shadow;
+}
+
+.ant-breadcrumb {
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.gi-body {
+    /*background-color: rgba(0, 0, 0, 0.02);*/
+    background-color: #EFF2F7
+}
+
+@header-h: 60px;
+.gi-header {
+    overflow: hidden;
+    background-color: @header-bg-color;
+    height: @header-h;
+}
+
+.ant-menu-horizontal {
+    line-height: 57px;
+}
+
+.ant-menu-dark.ant-menu-submenu-popup {
+    top: 61px;
+}
+
+.gi-header .left-logo {
+    float: left;
+    width: 200px;
+    padding-left: 24px;
+    height: @header-h;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #3A4252;
+}
+
+.gi-header .left-logo a {
+    display: inline-block;
+    height: 27px;
+    width: 152px;
+}
+
+.gi-header .center-menu {
+    float: left;
+    width: cacl(100% - 200px);
+    padding-left: 32px;
+}
+
+.gi-header .right-user {
+    float: right;
+    padding-right: 24px;
+    display: flex;
+    align-items: center;
+    height: @header-h;
+}
+
+.dropdown-user-overlay {
+    background-color: @header-bg-color;
+    width: 120px;
+    .ant-dropdown-menu-item>a,
+    .ant-dropdown-menu-submenu-title>a {
+        color: #fff !important;
+    }
+    li {
+        text-align: center;
+    }
+    .ant-dropdown-menu-item:hover,
+    .ant-dropdown-menu-submenu-title:hover {
+        background-color: transparent;
+        color: rgba(255, 255, 255, 0.65);
+    }
+    i {
+        margin-right: 6px;
+    }
+}
+
+.gi-bread {
+    padding: 10px 16px;
+    background: #FFFFFF;
+    .gi-box-shadow;
+    border-radius: 4px;
+    margin: 0 24px 8px;
+}
+
+.gi-outer-wrp {
+    padding: 0 16px;
+    background-color: #fff;
+    min-height: calc(~"100vh - 120px");
+    margin: 0 24px;
+    border-radius: 4px;
+}
+
+.gi-search-wrp {
+    padding: 24px 0;
+}
+
+.gi-search-wrp .ant-row-flex>div {
+    margin-right: 16px;
+}
+
+.gi-search-wrp .al-name {
+    padding-right: 8px;
+}
+
+
+/* 第二屏 */
+#secondWrp {
+    min-height: 100vh;
+}
+
+.sec-wrp-outer {
+    padding: 0 16px 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.close-wrp {
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.detail-hd-box{
+    height:60px;
+    line-height: 60px;
+    border-bottom:1px solid @border-color;
+    .detail-close-btn{
+        border:0; float: right;margin-top:14px;
+    }
+}
+.close-wrp .title {
+    font-weight: 600;
+}
+
+.detail-box>div.detail-row {
+    border: @border;
+    min-height: 40px;
+    border-top: 0;
+}
+
+.detail-box>div.detail-row:first-child {
+    border-top: @border;
+}
+
+.detail-box>div.detail-row>div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.detail-box>div.detail-row .left-title {
+    border-right: @border;
+    background-color: #fafafa;
+}
+
+.vis-min-box {
+    height: 50px;
+    position: relative;
+}
+
+.vis-max-min {
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+}
+
+.vis-min {
+    z-index: 10000;
+}
+
+.vis-network-wrp {
+    border: @border09;
+    position: relative;
+    border-radius: 4px;
+}
+
+#mynetwork {
+    min-height: 200px;
+    width: 100%;
+    height:calc(~"100vh - 400px");
+}
+
+.vis-depend{
+    //min-height: 624px;
+    height:calc(~"100vh - 120px - 80px - 20px");
+    #mynetwork {
+        min-height: 300px;
+        width: 100%;
+       height:calc(~"100% - 50px");
+    }
+}
+.no-data-wrp{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.vis-max-wrp {
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#mynetworkMax {
+    width: 100%;
+    height: calc(~"100vh - 50px");
+}
+
+
+/*无阈值告警20190406*/
+
+
+/* no data */
+
+.no-data-icon {
+    width: 202px;
+    height: 102px;
+    margin: 0 auto;
+    background: url(/public/stylesheets/theme/default/images/noData.png) no-repeat 100% !important;
+}
+
+.grid-nodata-box {
+    margin: 80px 0;
+}
+
+.grid-nodata-box-alarm {
+    position: relative;
+    top: -350px;
+}
+
+.echarts-legend-alarm ul {
+    font-size: 12px;
+    overflow: hidden;
+    width: 590px;
+    margin: 10px auto 0;
+}
+
+.echarts-legend-alarm li {
+    float: left;
+    //color: rgba(0, 0, 0, 0.25);
+    color: #2D3E53;
+    margin-left: 30px;
+}
+
+.echarts-legend-alarm i {
+    float: left;
+    width: 16px;
+    height: 6px;
+    border-radius: 4px;
+    background: #F6AD34;
+    margin: 6px 5px 6px 0;
+}
+
+.echarts-legend-alarm i.echarts-legend-0 {
+    background: #FEEEE7;
+    border: 1px solid #FFC9B5;
+}
+
+.echarts-legend-alarm i.echarts-legend-2 {
+    background: #fbfbfb;
+    border: 1px solid #E1E1E1;
+}
+
+.echarts-legend-alarm i.echarts-legend-3 {
+    background: #42BA81;
+}
+
+.echarts-legend-alarm i.echarts-legend-4 {
+    width: 6px;
+    background: #FB524F;
+    border-radius: 0;
+}
+
+.echarts-legend-alarm i.echarts-legend-5 {
+    border: 2px dashed #FC9191;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+/*点击静态阈值关闭*/
+
+.echarts-legend-alarm li.off i.echarts-legend-5 {
+    border: 2px dashed #d7d7d7;
+}
+
+.echarts-legend-alarm li.off span {
+    color: #d7d7d7;
+}
+
+.num-div span {
+    padding-right: 30px;
+}
+
+.tip-left {
+    width: 56px;
+    float: left;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.tip-right {
+    float: left;
+    text-align: left;
+    min-width: 160px;
+}
+
+.search-type ul {
+    width: 200px;
+}
+
+
+/*20190803*/
+
+.num-div {
+    display: flex;
+}
+
+.tongji-item {
+    float: left;
+    margin-right: 10px;
+    padding: 10px 0;
+    width: 112px;
+    height: 70px;
+    -webkit-box-shadow: 0 1px 7px 0 rgba(126, 126, 126, 0.24);
+    box-shadow: 0 1px 7px 0 rgba(126, 126, 126, 0.24);
+    text-align: center;
+}
+
+.tongji-item .el-card__body {
+    padding: 0 0 10px !important
+}
+
+.tongji-item .el-card__body .name {
+    opacity: 0.52;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.tongji-item .el-card__body .num {
+    font-size: 20px;
+    color: #4F5E70;
+    text-align: center;
+    height: 30px;
+}
+
+
+/*改版后*/
+
+.num-div {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.tongji-item-new {
+    float: left;
+    padding: 10px 0;
+    flex: 1;
+    height: 60px;
+    text-align: center;
+}
+
+.tongji-item-new .name {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.tongji-item-new .num {
+    font-size: 18px;
+    color: #147bd1;
+    text-align: center;
+    padding-top: 3px;
+}
+
+.tongji-item-new .num.num-red {
+    color: #FB6362;
+}
+
+#tableCellName {
+    font-size: 14px;
+    color: #1F2D3D;
+    letter-spacing: 0;
+    padding: 20px 0;
+    display: block;
+}
+
+
+/*开关按钮*/
+
+.own-switch {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    //min-width: 66px;
+    width: 60px;
+    padding: 0 2px;
+    /*margin-top: 2px;*/
+    border: 1px solid #d9d9d9;
+    border-radius: 18px;
+    background-color: #d9d9d9;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.own-switch i {
+    position: absolute;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transition: .1s linear;
+    transition: 0.1s linear;
+}
+
+.own-switch span.off {
+    position: absolute;
+    right: 10px;
+    color: #fff;
+}
+
+.own-switch span.on {
+    position: absolute;
+    left: 10px;
+    color: #fff;
+    display: none;
+}
+
+.own-switch-on span.off {
+    display: none;
+}
+
+.own-switch-on span.on {
+    display: block;
+}
+
+.own-switch-off span.off {
+    display: block;
+}
+
+.own-switch-off span.on {
+    display: none;
+}
+
+.own-switch-on {
+    border-color: #007cd7;
+    background-color: #007cd7;
+}
+
+.own-switch-on i {
+    right: 3px;
+    background-color: #ffffff;
+}
+
+.own-switch-off i {
+    left: 3px;
+}
+
+.auto-text {
+    color: rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    margin: 7px 10px;
+}
+
+.autoed {
+    /*opacity: 0.4 !important;
+      cursor: not-allowed !important;*/
+    background-color: #f5f5f5 !important;
+    border-color: #ebebeb !important;
+    color: #c2bfc0 !important;
+}
+
+.autoed:hover,
+.autoed:focus,
+.autoed:active {
+    background-color: #f5f5f5 !important;
+    border-color: #ebebeb !important;
+    color: #c2bfc0 !important;
+}

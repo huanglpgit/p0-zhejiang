@@ -20,7 +20,7 @@
                 "orderNum": "2",
                 "menuLevel": 2,
                 "menuName": "异常检测",
-                "menuUrl": "/giop/opcomponent/abnormal.min.html",
+                "menuUrl": "/opcomponent/abnormal",
                 "isShow": 1,
                 "menuClassName": "",
                 "menuForId": ""
@@ -42,7 +42,7 @@
                 "orderNum": "1",
                 "menuLevel": 3,
                 "menuName": "告警关系规则",
-                "menuUrl": "/giop/opcomponent/rerules.min.html",
+                "menuUrl": "/opcomponent/rerules",
                 "isShow": 1,
                 "menuClassName": null,
                 "menuForId": null
@@ -52,22 +52,22 @@
                 "parentMenuId": "3",
                 "orderNum": "2",
                 "menuLevel": 3,
-                "menuName": "告警根因定位",
-                "menuUrl": "/giop/opcomponent/caposition.min.html",
+                "menuName": "告警关系规则图",
+                "menuUrl": "/opcomponent/depend",
                 "isShow": 1,
-                "menuClassName": null,
-                "menuForId": null
+                "menuClassName": "",
+                "menuForId": ""
             },
             {
                 "menuId": 6,
                 "parentMenuId": "3",
                 "orderNum": "3",
                 "menuLevel": 3,
-                "menuName": "告警关系规则图",
-                "menuUrl": "/giop/opcomponent/depend.min.html",
+                "menuName": "告警根因定位",
+                "menuUrl": "/opcomponent/caposition",
                 "isShow": 1,
-                "menuClassName": "",
-                "menuForId": ""
+                "menuClassName": null,
+                "menuForId": null
             }
         ]
     }

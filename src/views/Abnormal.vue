@@ -12,7 +12,7 @@
   export default {
     name:'abnormal',
     created(){
-      console.log('999')
+     document.title = '异常检测'
     },
     computed:{
       breadcrumb(){

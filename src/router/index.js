@@ -6,9 +6,26 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path:'',
+    redirect:'/login'
+  },
+  {
     path: '/',
     name: 'home',
-    component: Abnormal
+    component: Abnormal,
+    meta: {
+      title: '异常检测',
+      breadcrumbList:['智能组件','异常检测']
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login.vue'),
+    meta: {
+      title: '登录',
+      breadcrumbList:[]
+    }
   },
   {
     path: '/opcomponent/abnormal',
