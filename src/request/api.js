@@ -8,6 +8,15 @@ export const pLogin = (params) => aiopsPost({
     url: '/api/security/login',
     data: params
 });
+//菜单导航=====================================================================
+export const getMenus = (params) => aiopsGet({
+    url: "/json/header.json",
+      //url:'/api/security/getMenuInfo',
+});
+//退出=====================================================================
+export const pLogout = () => aiopsGet({
+    url: '/api/security/out'
+});
 //智能组件-异常检测=====================================================================
 //指标类型
 export const getZhuanyes = (params) => aiopsGet({
@@ -24,8 +33,7 @@ export const getLenoven = (params) => aiopsGet({
     params: params
 });
 //画面数据展示
-export const getPageDisplay = (params) => fetch({
+export const getPageDisplay = (params) => aiopsGet({
     url: '/api/thresholdFreeAlert/api/giop/pageDisplay',
-    params: params,
-    //isLoading: true //加载中
+    params: params
 });

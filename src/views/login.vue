@@ -48,7 +48,7 @@
   </div>
 </template>
 <style lang="less" scoped>
-@import "../../public/less/giop-default";
+// @import "../../public/less/giop-default";
 body,
 html {
   height: 100%;
@@ -175,22 +175,20 @@ export default {
       this.captchaSrc = "/api/security/captcha?_=" + Math.random();
     },
     //登录
-    loginFun(formData) {
-      var that = this;
-      pLogin(formData).then(res => {
-        if (res.status == "200") {
-          that.$router.push({
-            path: "/opcomponent/abnormal"
-          });
-          // var callUrl = window.location.href.split('?')[1];
-          //   callUrl = callUrl ? callUrl.substr(5) : "";//截取goto=后面的url并跳转
-          // var sucUrl = callUrl ? callUrl : $.forward;
-          // window.location.href = sucUrl;
-        }
-        if (res.status == "201") {
-          that.$message.error(res.message);
-        }
-      });
+    async loginFun(formData) {
+      let res = await pLogin(formData);
+      if (res.status == "200") {
+        // that.$router.push({
+        //   path: this.$BASE.forward
+        // });
+        var callUrl = window.location.href.split("?")[1];
+        callUrl = callUrl ? callUrl.substr(5) : ""; //截取goto=后面的url并跳转
+        var sucUrl = callUrl ? callUrl : this.$BASE.forward;
+        window.location.href = sucUrl;
+      }
+      if (res.status == "201") {
+        that.$message.error(res.message);
+      }
     },
     handleSubmit(e) {
       e.preventDefault();

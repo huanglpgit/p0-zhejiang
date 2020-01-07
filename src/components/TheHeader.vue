@@ -50,6 +50,7 @@
 @import "../../public/less/giop-default";
 </style>
 <script>
+import { getMenus, pLogout } from "../request/api";
 export default {
   name: "TheHeader",
   data() {
@@ -59,30 +60,37 @@ export default {
     };
   },
   created() {
-    var that = this;
-    this.$axios({
-      method: "get",
-      url: "/json/header.json",
-      //url:'/api/security/getMenuInfo',
-      data: {}
-    })
-      .then(res => {
-        //  that.headerMenus = res.data.data
-        var allDatas = res.data.data.treeNodeList;
-        let treeMenu = that.composeTree(allDatas);
-        that.headerMenus = treeMenu;
-        // alert( res)         //这里使用了ES6的语法
-        //console.log(response)       //请求成功返回的数据
-      })
-      .catch(() => {
-        // alert(error)
-        // console.log(error)       //请求失败返回的数据
-      });
+    this.loadMenus();
   },
   methods: {
     handleClick(e) {
       console.log("click", e);
     },
+    //获取菜单
+    async loadMenus() {
+      let res = await getMenus();
+      if (res.status == "200") {
+        var allDatas = res.data.treeNodeList;
+        let treeMenu = this.composeTree(allDatas);
+        this.headerMenus = treeMenu;
+      }
+    },
+    //退出登录
+    async logout() {
+      var res = await pLogout();
+      if (res.status == "200") {
+        //跳转到登录页面
+        var callUrl = window.location.href.split("?")[1];
+        callUrl = callUrl ? callUrl.substr(5) : ""; //截取goto=后面的url并跳转
+        var sucUrl = callUrl ? callUrl : $.forward;
+        window.location.href = sucUrl;
+      }
+      if (res.status == "201") {
+        this.$message.error(res.data.message);
+        return;
+      }
+    },
+    //转成children
     composeTree(list = []) {
       const data = JSON.parse(JSON.stringify(list)); // 浅拷贝不改变源数据
       const result = [];
@@ -105,26 +113,6 @@ export default {
         }
       });
       return result;
-    },
-    //退出登录
-    logout() {
-      var that = this;
-      this.$axios({
-        method: "get",
-        url: "/api/security/out",
-        data: {}
-      })
-        .then(res => {
-          if (res.data.status == "200") {
-            //跳转到登录页面
-            window.location.href = $.giopLoginURL;
-          }
-          if (res.data.status == "201") {
-            that.$message.error(res.data.message);
-            return;
-          }
-        })
-        .catch(() => {});
     }
   }
 };
