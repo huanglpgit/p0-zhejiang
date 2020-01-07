@@ -47,8 +47,7 @@
   </div>
 </template>
 <style lang="less" scoped>
-@import "../../public/less/reset";
-@import "../../public/less/giop";
+@import "../../public/less/giop-default";
 </style>
 <script>
 export default {

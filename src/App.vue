@@ -14,8 +14,6 @@
   width: 100%;
   height: 100%;
 }
-@import "../public/less/reset";
-@import "../public/less/giop";
 </style>
 <script>
 import TheHeader from "@/components/TheHeader";

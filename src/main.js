@@ -5,8 +5,12 @@
 
 import Vue from 'vue';
 import Antd from 'ant-design-vue';
-import App from './App';
 import 'ant-design-vue/dist/antd.css';
+//使用部分elementUI组件
+import {Loading} from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './App';
+
 
 import router from './router'
 import axios from 'axios'
@@ -16,6 +20,7 @@ Vue.prototype.qs = qs           //全局注册，使用方法为:this.qs
 Vue.config.productionTip = false;
 
 Vue.use(Antd);
+Vue.use(Loading);
 
 new Vue({
   router,

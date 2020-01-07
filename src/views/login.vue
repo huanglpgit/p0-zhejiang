@@ -12,21 +12,21 @@
                 <a-input
                   placeholder="用户名"
                   aria-autocomplete="off"
-                  v-decorator="['username', { rules: [{ required: true, message: '请输入用户名' }] }]"
+                  v-decorator="['username',{rules: validateRules.username}]"
                 />
               </a-form-item>
               <a-form-item>
                 <a-input
                   placeholder="密 码"
                   type="password"
-                  v-decorator="['password', { rules: [{ required: true, message: '请输入密码' }] }]"
+                  v-decorator="['password',{rules: validateRules.password}]"
                 />
               </a-form-item>
               <a-form-item class="captcha-box">
                 <a-input
                   autocomplete="off"
                   placeholder="验证码"
-                  v-decorator="['captcha', { rules: [{ required: true, message: '请输入验证码' }] }]"
+                  v-decorator="['captcha',{rules: validateRules.captcha}]"
                 />
                 <img
                   :src="captchaSrc"
@@ -36,8 +36,8 @@
                   title="点击换一张"
                 />
               </a-form-item>
-              <a-form-item>
-                <a-button type="primary" block>登录</a-button>
+              <a-form-item class="btn-item">
+                <a-button type="primary" html-type="submit" block>登录</a-button>
               </a-form-item>
             </a-form>
           </div>
@@ -48,19 +48,13 @@
   </div>
 </template>
 <style lang="less" scoped>
-@import "../../public/less/reset";
-@import "../../public/less/giop";
+@import "../../public/less/giop-default";
 body,
 html {
   height: 100%;
   background: #0d2036;
 }
-//error提示
-.has-error .ant-form-explain,
-.has-error .ant-form-split {
-  color: #f56c6c;
-  font-size: 12px;
-}
+
 .login {
   background-image: linear-gradient(180deg, #0a1f37 0%, #0a1f37 100%);
   width: 100%;
@@ -120,6 +114,9 @@ html {
       .right-form {
         width: 318px;
         margin: 0 auto;
+        .btn-item {
+          margin-top: 3px;
+        }
         input {
           background: #2f4053;
           //border: none;
@@ -153,17 +150,20 @@ html {
 }
 </style>
 <script>
+import { encrypt } from "../utils/encrypt";
+import { pLogin } from "../request/api";
 export default {
   name: "login",
   data() {
     return {
       formLayout: "horizontal",
-      form: this.$form.createForm(this, { name: "coordinated" }),
+      form: this.$form.createForm(this, { name: "loginForm" }),
       captchaSrc: "/api/security/captcha?_=" + Math.random(),
-      errorMsg: "",
-      username: "",
-      password: "",
-      captcha: ""
+      validateRules: {
+        username: [{ required: true, message: "请输入用户名" }],
+        password: [{ required: true, message: "请输入密码" }],
+        captcha: [{ required: true, message: "请输入验证码" }]
+      }
     };
   },
   created() {
@@ -174,11 +174,38 @@ export default {
     changeCaptcha() {
       this.captchaSrc = "/api/security/captcha?_=" + Math.random();
     },
+    //登录
+    loginFun(formData) {
+      var that = this;
+      pLogin(formData).then(res => {
+        if (res.status == "200") {
+          that.$router.push({
+            path: "/opcomponent/abnormal"
+          });
+          // var callUrl = window.location.href.split('?')[1];
+          //   callUrl = callUrl ? callUrl.substr(5) : "";//截取goto=后面的url并跳转
+          // var sucUrl = callUrl ? callUrl : $.forward;
+          // window.location.href = sucUrl;
+        }
+        if (res.status == "201") {
+          that.$message.error(res.message);
+        }
+      });
+    },
     handleSubmit(e) {
       e.preventDefault();
+      var that = this;
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log("Received values of form: ", values);
+          //校验通过
+          let username = encrypt(values.username);
+          let password = encrypt(values.password);
+          let formData = {
+            username: username,
+            password: password,
+            captcha: values.captcha
+          };
+          that.loginFun(formData);
         }
       });
     }
