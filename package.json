@@ -14,7 +14,8 @@
     "echarts": "^3.8.4",
     "element-ui": "^2.13.0",
     "qs.js": "^0.1.12",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-draggable-resizable": "^2.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",

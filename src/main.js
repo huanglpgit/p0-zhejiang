@@ -12,9 +12,11 @@ import 'element-ui/lib/theme-chalk/index.css';
 //echarts 建议改成按需引入
 import echarts from 'echarts' //引入echarts
 Vue.prototype.$echarts = echarts //引入组件
-
+//拖拽组件
+import VueDraggableResizable from 'vue-draggable-resizable';
+Vue.component('vue-draggable-resizable', VueDraggableResizable);
+//基本配置信息
 import BASE from "../src/config/base";
-
 import App from './App';
 
 
