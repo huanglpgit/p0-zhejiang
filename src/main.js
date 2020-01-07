@@ -9,6 +9,10 @@ import 'ant-design-vue/dist/antd.css';
 //使用部分elementUI组件
 import {Loading} from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+//echarts
+import echarts from 'echarts' //引入echarts
+Vue.prototype.$echarts = echarts //引入组件
+
 import App from './App';
 
 

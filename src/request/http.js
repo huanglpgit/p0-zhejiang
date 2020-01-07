@@ -105,9 +105,7 @@ export function fetch(option) {
     return new Promise((resolve, reject) => {
         axios(option).then(res => {
             //关闭loading
-            setTimeout(() => {
-                loadingInstance && loadingInstance.close();
-            }, 800);
+           
             resolve(res);
         }, err => {
             loadingInstance && loadingInstance.close();
@@ -116,7 +114,7 @@ export function fetch(option) {
     });
 };
 //post 方法
-export function AiPost(option) {
+export function aiopsPost(option) {
     let defaultOps = {
         url: '',
         method: 'POST', 
@@ -136,9 +134,7 @@ export function AiPost(option) {
     return new Promise((resolve, reject) => {
         axios(option).then(res => {
             //关闭loading
-            setTimeout(() => {
-                loadingInstance && loadingInstance.close();
-            }, 800);
+            loadingInstance && loadingInstance.close();
             resolve(res);
         }, err => {
             loadingInstance && loadingInstance.close();
@@ -147,7 +143,7 @@ export function AiPost(option) {
     });
 };
 //get 方法
-export function AiGet(option) {
+export function aiopsGet(option) {
     let defaultOps = {
         url: '',
         method: 'GET', //默认使用get
@@ -170,9 +166,7 @@ export function AiGet(option) {
     return new Promise((resolve, reject) => {
         axios(option).then(res => {
             //关闭loading
-            setTimeout(() => {
-                loadingInstance && loadingInstance.close();
-            }, 800);
+            loadingInstance && loadingInstance.close();
             resolve(res);
         }, err => {
             loadingInstance && loadingInstance.close();
@@ -181,4 +175,4 @@ export function AiGet(option) {
     });
 };
 Vue.prototype.$fetch = fetch;
-Vue.prototype.$Aipost = AiPost;
+Vue.prototype.$aiopsPost = aiopsPost;
