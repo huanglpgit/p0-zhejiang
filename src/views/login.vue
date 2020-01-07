@@ -125,6 +125,7 @@ html {
           font-size: 16px;
           color: #efefef;
           padding: 10px 16px;
+          border-color: #435468;
         }
         button {
           height: 40px;
@@ -178,12 +179,12 @@ export default {
     async loginFun(formData) {
       let res = await pLogin(formData);
       if (res.status == "200") {
-        // that.$router.push({
-        //   path: this.$BASE.forward
-        // });
         var callUrl = window.location.href.split("?")[1];
         callUrl = callUrl ? callUrl.substr(5) : ""; //截取goto=后面的url并跳转
         var sucUrl = callUrl ? callUrl : this.$BASE.forward;
+        // this.$router.push({
+        //    path: sucUrl
+        // });
         window.location.href = sucUrl;
       }
       if (res.status == "201") {

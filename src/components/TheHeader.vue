@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="center-menu">
-      <a-menu @click="handleClick" style="width: 100%" mode="horizontal" theme="dark">
+      <a-menu @click="handleClick" v-model="current" style="width: 100%" mode="horizontal" theme="dark">
         <a-sub-menu class="leve1-has-children" v-for="item in headerMenus" :key="item.menuId">
           <span slot="title">{{item.menuName}}</span>
           <template v-if="item.children.length>0" v-for="level2 in item.children">
@@ -29,6 +29,7 @@
         </a-sub-menu>
       </a-menu>
     </div>
+    <!-- 右侧个人中心 -->
     <div class="right-user">
       <a-dropdown placement="bottomRight" :trigger="['click']">
         <a class="ant-dropdown-link" href="javascript:;">
@@ -56,15 +57,17 @@ export default {
   data() {
     return {
       headerMenus: [],
-      current: ["mail"]
+      current: [2]//默认登录过来后的首页 menuId 异常检测的menuId是2
     };
   },
   created() {
+    document.title="异常检测";
     this.loadMenus();
   },
   methods: {
     handleClick(e) {
       console.log("click", e);
+      this.current = e.key;
     },
     //获取菜单
     async loadMenus() {

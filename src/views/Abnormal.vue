@@ -206,8 +206,6 @@
 
 <script>
 import moment from "moment";
-import "moment/locale/zh-cn";
-moment.locale("zh-cn");
 import {getZhuanyes,getPriTypes,getLenoven,getPageDisplay} from "../request/api"
 var dataLevel = []; //级别
 	const chartsRelate = {
