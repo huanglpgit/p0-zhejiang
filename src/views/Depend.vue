@@ -54,9 +54,19 @@
           </a-col>
           <a-col>
             <span class="al-name">次告警对象类型</span>
-							<a-select :not-found-content="null" placeholder="次告警对象类型" :allow-clear="true" style="width: 140px" v-model="searchs.slaveDeviceType" @change="slaveDeviceTypeChange">
-								<a-select-option v-for="d in slaveDeviceTypeList" :key="d.slave_device_type">{{d.slave_device_type}}</a-select-option>
-							</a-select>
+            <a-select
+              :not-found-content="null"
+              placeholder="次告警对象类型"
+              :allow-clear="true"
+              style="width: 140px"
+              v-model="searchs.slaveDeviceType"
+              @change="slaveDeviceTypeChange"
+            >
+              <a-select-option
+                v-for="d in slaveDeviceTypeList"
+                :key="d.slave_device_type"
+              >{{d.slave_device_type}}</a-select-option>
+            </a-select>
           </a-col>
           <a-col>
             <span class="al-name">次告警标题</span>
@@ -249,6 +259,8 @@ export default {
       loadingGi: false,
       showMaxBtn: false,
       network1: null,
+      visNodes:[],
+      visEdges:[],
       network2: null,
       showVisMax: false,
       visData: null
@@ -342,7 +354,9 @@ export default {
         } else {
           that.showNodata = true;
         }
-        var nodes = new vis.DataSet(res.rows.nodes);
+        //修改后台返回图片的路径
+        let nodesNew = this.returnNewnodes(res.rows.nodes);
+        var nodes = new vis.DataSet(nodesNew);
         var edges = new vis.DataSet(res.rows.edges);
         var containerVis = document.getElementById("mynetwork");
         var dataVis = {
@@ -356,6 +370,19 @@ export default {
       if (res.status == "201") {
         that.$message.error(res.message, 3);
       }
+    },
+    //修改后台返回的图片路径
+    returnNewnodes(nodes){
+      let nodesNew = nodes.map(item => {
+          return {
+            id: item.id,
+            shape: item.shape,
+            image: (item.image).replace('/public', ''),
+            label: item.label,
+            level:item.level
+          };
+      });
+      return nodesNew;
     },
     //资源域  训练分组
     async getListDomain(params = {}) {

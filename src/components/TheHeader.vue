@@ -33,7 +33,7 @@
     <div class="right-user">
       <a-dropdown placement="bottomRight" :trigger="['click']">
         <a class="ant-dropdown-link" href="javascript:;">
-          <a-avatar :size="32" src="/images/pass_user.jpg" />
+          <a-avatar :size="32" :src="require('../../public/images/pass_user.jpg')" />
           <a-icon style="font-size:14px;color:rgba(255,255,255,0.65)" type="caret-down" />
         </a>
         <a-menu slot="overlay" class="dropdown-user-overlay" @click="logout">

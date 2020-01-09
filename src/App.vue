@@ -2,7 +2,7 @@
   <a-locale-provider :locale="zh_CN">
     <div id="app">
       <TheHeader v-if="this.$route.path!='/login'" />
-      <TheBread v-if="this.$route.path!='/login'" />
+      <TheBread />
       <!-- <div id="nav">
       <router-link to="/opcomponent/abnormal">异常检测</router-link>|
       <router-link to="/opcomponent/rerules">告警关系规则</router-link>

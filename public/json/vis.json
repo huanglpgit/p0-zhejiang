@@ -89,91 +89,91 @@
         {
           "id": "A_type:A_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "A_type:A_title"
           ,"level":"3"
         },
         {
           "id": "B_type:B_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "B_type:B_title"
           ,"level":"4"
         },
         {
           "id": "C_type:C_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "C_type:C_title"
           ,"level":"5"
         },
         {
           "id": "D_type:D_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-blue.png",
+          "image": "/images/alarm/position-blue.png",
           "label": "D_type:D_title"
           ,"level":"7"
         },
         {
           "id": "E_type:E_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "E_type:E_title"
           ,"level":"6"
         },
         {
           "id": "F_type:F_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-blue.png",
+          "image": "/images/alarm/position-blue.png",
           "label": "F_type:F_title"
           ,"level":"7"
         },
         {
           "id": "b_type:b_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "b_type:b_title"
           ,"level":"2"
         },
         {
           "id": "c_type:c_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "c_type:c_title"
           ,"level":"2"
         },
         {
           "id": "d_type:d_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "d_type:d_title" 
           ,"level":"1"
         },
         {
           "id": "e_type:e_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "e_type:e_title"
           ,"level":"6"
         },
         {
           "id": "f_type:f_title",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-blue.png",
+          "image": "/images/alarm/position-blue.png",
           "label": "f_type:f_title"
           ,"level":"7"
         },
         {
           "id": "test",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-yellow.png",
+          "image": "/images/alarm/position-yellow.png",
           "label": "测试孤立点如何对齐"
           ,"level":"6"
         },
         {
           "id": "test2",
           "shape": "circularImage",
-          "image": "/public/images/alarm/position-blue.png",
+          "image": "/images/alarm/position-blue.png",
           "label": "应该喝蓝色对齐？？"
           ,"level":"7"
         }

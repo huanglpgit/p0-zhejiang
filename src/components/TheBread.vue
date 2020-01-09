@@ -1,6 +1,6 @@
 <template>
     <!-- 面包屑 -->
-     <div class="gi-bread">
+     <div class="gi-bread" v-if="breadcrumb&&breadcrumb.length>0">
 				<a-breadcrumb>
 	        <a-breadcrumb-item v-for="(item,index) in breadcrumb" :key="index">{{item}}</a-breadcrumb-item> 
 				</a-breadcrumb>

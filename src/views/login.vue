@@ -188,7 +188,7 @@ export default {
         window.location.href = sucUrl;
       }
       if (res.status == "201") {
-        that.$message.error(res.message);
+        this.$message.error(res.message);
       }
     },
     handleSubmit(e) {
