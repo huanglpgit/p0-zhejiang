@@ -1,0 +1,183 @@
+{
+    "status": "200",
+    "message": null,
+    "rows": {
+      "edges": [
+        {
+          "color": null,
+          "from": "A_type:A_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "B_type:B_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "B_type:B_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "C_type:C_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "C_type:C_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "D_type:D_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "C_type:C_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "E_type:E_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "E_type:E_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "F_type:F_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "b_type:b_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "A_type:A_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "c_type:c_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "A_type:A_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "d_type:d_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "c_type:c_title",
+          "width": null
+        },
+        {
+          "color": null,
+          "from": "e_type:e_title",
+          "id": null,
+          "label": null,
+          "length": null,
+          "to": "f_type:f_title",
+          "width": null
+        }
+      ],
+      "nodes": [
+        {
+          "id": "A_type:A_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "A_type:A_title"
+          ,"level":"3"
+        },
+        {
+          "id": "B_type:B_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "B_type:B_title"
+          ,"level":"4"
+        },
+        {
+          "id": "C_type:C_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "C_type:C_title"
+          ,"level":"5"
+        },
+        {
+          "id": "D_type:D_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-blue.png",
+          "label": "D_type:D_title"
+          ,"level":"7"
+        },
+        {
+          "id": "E_type:E_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "E_type:E_title"
+          ,"level":"6"
+        },
+        {
+          "id": "F_type:F_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-blue.png",
+          "label": "F_type:F_title"
+          ,"level":"7"
+        },
+        {
+          "id": "b_type:b_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "b_type:b_title"
+          ,"level":"2"
+        },
+        {
+          "id": "c_type:c_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "c_type:c_title"
+          ,"level":"2"
+        },
+        {
+          "id": "d_type:d_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "d_type:d_title" 
+          ,"level":"1"
+        },
+        {
+          "id": "e_type:e_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "e_type:e_title"
+          ,"level":"6"
+        },
+        {
+          "id": "f_type:f_title",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-blue.png",
+          "label": "f_type:f_title"
+          ,"level":"7"
+        },
+        {
+          "id": "test",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-yellow.png",
+          "label": "测试孤立点如何对齐"
+          ,"level":"6"
+        },
+        {
+          "id": "test2",
+          "shape": "circularImage",
+          "image": "/public/images/alarm/position-blue.png",
+          "label": "应该喝蓝色对齐？？"
+          ,"level":"7"
+        }
+      ],
+      "recordList": null
+    }
+  }

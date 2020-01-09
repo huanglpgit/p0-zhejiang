@@ -10,7 +10,7 @@ import {
 //登录=====================================================================
 export const pLogin = (params) => aiopsPost({
     url: '/api/security/login',
-    data: params
+    params: params
 });
 //菜单导航=====================================================================
 export const getMenus = (params) => aiopsGet({
@@ -71,5 +71,10 @@ export const tbRerules = (params={}) => aiopsGet({
     url: '/api/alarmanalysis/api/giop/alarmanalysis/work/List',
     params: params
 });
-
-
+//智能组件-告警根因分析-告警关系规则图=====================================================================
+//告警对象类型
+export const rerulesVis = (params={}) => aiopsGet({
+    //url: '/api/alarmanalysis/api/giop/alarmanalysis/list',
+    url:'/json/vis.json',
+    params: params
+});

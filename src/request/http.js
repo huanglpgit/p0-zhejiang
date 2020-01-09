@@ -32,12 +32,12 @@ axios.interceptors.request.use(function (config) {
     }
     //添加token
     var ssg = window.sessionStorage;
-    // if (ssg) {
-    //     token = ssg.getItem("token");
-    //     if (token) {
-    //         config.headers['X-Authorization'] = token;
-    //     }
-    // }
+    if (ssg) {
+        let token = ssg.getItem("token") || null;
+        if (token) {
+            config.headers['X-Authorization'] = token;
+        }
+    }
     return config;
 }, function (error) {
     // 对请求错误做些什么
@@ -119,8 +119,8 @@ export function aiopsPost(option) {
         url: '',
         method: 'POST', 
         isLoading: false, //默认请求前不使用loading
-        params: option.params ? option.params : '', //添加到url的请求字符串中的，用于get请求
-        data: option.data ? option.data : '' //添加到请求体（body）中的， 用于post等请求
+       // params: option.params ? option.params : '', //添加到url的请求字符串中的，用于get请求
+        data: option.params ? option.params : {} //添加到请求体（body）中的， 用于post等请求
     }
     option = Object.assign(defaultOps, option);
     let loadingInstance = null;
@@ -152,7 +152,7 @@ export function aiopsGet(option) {
         },
         isLoading: false, //默认请求前不使用loading
         params: option.params ? option.params : '', //添加到url的请求字符串中的，用于get请求
-        data: option.data ? option.data : '' //添加到请求体（body）中的， 用于post等请求
+        //data: option.data ? option.data : '' //添加到请求体（body）中的， 用于post等请求
     }
     option = Object.assign(defaultOps, option);
     let loadingInstance = null;

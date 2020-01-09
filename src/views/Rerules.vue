@@ -53,20 +53,10 @@
             </a-auto-complete>
           </a-col>
           <a-col>
-            <span class="al-name">次告警对象类型</span>
-            <a-select
-              :not-found-content="null"
-              placeholder="次告警对象类型"
-              :allow-clear="true"
-              style="width: 140px"
-              v-model="searchs.slaveDeviceType"
-              @change="slaveDeviceTypeChange"
-            >
-              <a-select-option
-                v-for="d in masterDeviceTypeList"
-                :key="d.master_device_type"
-              >{{d.master_device_type}}</a-select-option>
-            </a-select>
+           <span class="al-name">次告警对象类型</span>
+							<a-select :not-found-content="null" placeholder="次告警对象类型" :allow-clear="true" style="width: 140px" v-model="searchs.slaveDeviceType" @change="slaveDeviceTypeChange">
+								<a-select-option v-for="d in slaveDeviceTypeList" :key="d.slave_device_type">{{d.slave_device_type}}</a-select-option>
+							</a-select>
           </a-col>
           <a-col>
             <span class="al-name">次告警标题</span>
@@ -94,17 +84,16 @@
       </div>
       <!-- 列表 -->
       <div class="gi-table-wrp">
-        <!-- <a-table
+        <a-table
           :scroll="{x:1200}"
-          :locale="{emptyText:'暂无数据'}"
           bordered
           :columns="columns"
           :data-source="data"
           :pagination="pagination"
           @change="handleTableChange"
           :loading="loading"
-        >-->
-        <a-table :scroll="{x:1200}" :components="components" :dataSource="data">
+        >
+        <!-- <a-table :scroll="{x:1200}" :components="components" :dataSource="data"> -->
           <span
             v-for="(item,index) in columns"
             :key="index"
@@ -215,19 +204,6 @@
     </div>
   </div>
 </template>
-<style lang="less">
-.resize-table-th {
-  position: relative;
-  .table-draggable-handle {
-    height: 100% !important;
-    bottom: 0;
-    left: auto !important;
-    right: -5px;
-    cursor: col-resize;
-    touch-action: none;
-  }
-}
-</style>
 <script>
 // @ is an alias to /src
 import {getDomains,getMasterTypes,getSlaveTypes,acMasters,acSlaves,tbRerules} from "../request/api"
@@ -311,55 +287,9 @@ const columns = [{
 			customRender: 'action'
 		}
   }];
-const draggingMap = {};
-columns.forEach(col => {
-  draggingMap[col.key] = col.width;
-});
-const draggingState = Vue.observable(draggingMap);
-const ResizeableTitle = (h, props, children) => {
-  let thDom = null;
-  const { key, ...restProps } = props;
-  const col = columns.find(col => {
-    const k = col.dataIndex || col.key;
-    return k === key;
-  });
-  if (!col.width) {
-    return <th {...restProps}>{children}</th>;
-  }
-  const onDrag = (x, y) => {
-    draggingState[key] = 0;
-    col.width = Math.max(x, 1);
-  };
-
-  const onDragstop = () => {
-    draggingState[key] = thDom.getBoundingClientRect().width;
-  };
-  return (
-    <th {...restProps} v-ant-ref={r => (thDom = r)} width={col.width} class="resize-table-th">
-      {children}
-      <vue-draggable-resizable
-        key={col.key}
-        class="table-draggable-handle"
-        w={10}
-        x={draggingState[key] || col.width}
-        z={1}
-        axis="x"
-        draggable={true}
-        resizable={false}
-        onDragging={onDrag}
-        onDragstop={onDragstop}
-      ></vue-draggable-resizable>
-    </th>
-  );
-};
 export default {
   name: "rerules",
   data() {
-    this.components = {
-      header: {
-        cell: ResizeableTitle,
-      },
-    };
 			return {
 				searchs: {
 					"domain": undefined, //训练分组 即资源域

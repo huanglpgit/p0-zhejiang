@@ -47,6 +47,15 @@ const routes = [
       title: '告警关系规则',
       breadcrumbList:['智能组件','告警根因分析','告警关系规则']
     }
+  },
+  {
+    path: '/opcomponent/depend',
+    name: 'depend',
+    component: () => import('../views/Depend.vue'),
+    meta: {
+      title: '告警关系规则图',
+      breadcrumbList:['智能组件','告警根因分析','告警关系规则图']
+    }
   }
 ]
 
