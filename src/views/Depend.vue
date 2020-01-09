@@ -319,7 +319,9 @@ export default {
       }
       setTimeout(function() {
         let visData = that.visData;
-        var nodes = new vis.DataSet(visData.nodes);
+         //修改后台返回图片的路径
+        let nodesNew = that.returnNewnodes(visData.nodes);
+        var nodes = new vis.DataSet(nodesNew);
         var edges = new vis.DataSet(visData.edges);
         var containerVis = document.getElementById("mynetworkMax");
         var dataVis = {

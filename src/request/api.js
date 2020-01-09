@@ -74,7 +74,7 @@ export const tbRerules = (params={}) => aiopsGet({
 //智能组件-告警根因分析-告警关系规则图=====================================================================
 //告警对象类型
 export const rerulesVis = (params={}) => aiopsGet({
-    //url: '/api/alarmanalysis/api/giop/alarmanalysis/list',
-    url:'/json/vis.json',
+    url: '/api/alarmanalysis/api/giop/alarmanalysis/list',
+    //url:'/json/vis.json',
     params: params
 });
