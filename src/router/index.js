@@ -4,18 +4,10 @@ import Abnormal from '../views/Abnormal.vue'
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+  {
     path: '',
     redirect: '/login'
-  },
-  {
-    path: '/',
-    name: 'home',
-    component: Abnormal,
-    meta: {
-      title: '异常检测',
-      breadcrumbList: ['智能组件', '异常检测']
-    }
   },
   {
     path: '/login',
@@ -84,9 +76,8 @@ const routes = [{
   //404页面 需要放在最后
   //{ path: '*', component: NotFoundComponent }
 ]
-let mode = process.env.NODE_ENV == 'development' ? 'history' : 'hash';
 const router = new VueRouter({
- // mode: mode,
+  mode: 'history',
   //base: '/giop/',
   routes // (缩写) 相当于 routes: routes
 })
