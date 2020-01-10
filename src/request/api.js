@@ -15,8 +15,8 @@ export const pLogin = (params) => aiopsPost({
 });
 //菜单导航=====================================================================
 export const getMenus = (params) => aiopsGet({
-    url: "/json/header.json",
-      //url:_BASE.urlPrefix+'/api/security/getMenuInfo',
+    //url: "/json/header.json",
+    url:_BASE.urlPrefix+'/security/getMenuInfo',
 });
 //退出=====================================================================
 export const pLogout = () => aiopsGet({

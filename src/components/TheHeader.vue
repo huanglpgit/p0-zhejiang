@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     handleClick(e) {
-      console.log("click", e);
       this.current = e.key;
     },
     //获取菜单
@@ -83,10 +82,7 @@ export default {
       var res = await pLogout();
       if (res.status == "200") {
         //跳转到登录页面
-        var callUrl = window.location.href.split("?")[1];
-        callUrl = callUrl ? callUrl.substr(5) : ""; //截取goto=后面的url并跳转
-        var sucUrl = callUrl ? callUrl : $.forward;
-        window.location.href = sucUrl;
+        window.location.href = this.$BASE.giopLoginURL;
       }
       if (res.status == "201") {
         this.$message.error(res.data.message);

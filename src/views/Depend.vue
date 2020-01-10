@@ -311,9 +311,7 @@ export default {
       }
       setTimeout(function() {
         let visData = that.visData;
-         //修改后台返回图片的路径
-        let nodesNew = that.returnNewnodes(visData.nodes);
-        var nodes = new vis.DataSet(nodesNew);
+        var nodes = new vis.DataSet(visData.nodes);
         var edges = new vis.DataSet(visData.edges);
         var containerVis = document.getElementById("mynetworkMax");
         var dataVis = {
@@ -344,9 +342,7 @@ export default {
         } else {
           this.showNodata = true;
         }
-        //修改后台返回图片的路径
-        let nodesNew = this.returnNewnodes(res.rows.nodes);
-        var nodes = new vis.DataSet(nodesNew);
+        var nodes = new vis.DataSet(res.rows.nodes);
         var edges = new vis.DataSet(res.rows.edges);
         var containerVis = document.getElementById("mynetwork");
         var dataVis = {
@@ -360,19 +356,6 @@ export default {
       if (res.status == "201") {
         this.$message.error(res.message, 3);
       }
-    },
-    //修改后台返回的图片路径
-    returnNewnodes(nodes){
-      let nodesNew = nodes.map(item => {
-          return {
-            id: item.id,
-            shape: item.shape,
-            image: (item.image).replace('/giop/public', ''),
-            label: item.label,
-            level:item.level
-          };
-      });
-      return nodesNew;
     },
     //资源域  训练分组
     async getListDomain(params = {}) {

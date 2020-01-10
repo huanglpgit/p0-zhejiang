@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Vue from 'vue';
 import qs from 'qs'
+import _BASE from "../config/base";
 
 import {
     message
@@ -60,24 +61,23 @@ axios.interceptors.response.use(function (response) {
         //window.location.href = $.giopLoginURL + window.location.href.split('?')[0];
         return Promise.reject(error);
     } else if (error.message.includes('404')) {
-        message.error('接口404');
+        // message.error('接口404');
         return Promise.reject(error);
     } else if (error.message.includes('403')) {
-        // try {
-        //     var json = JSON.parse(XMLHttpRequest.responseText);
-        //     var gotoUrl = json.goto;
-        //     if(gotoUrl == null) {
-        //         window.location.href = $.giopLoginURL + window.location.href.split('?')[0];
-        //     } else {
-        //         window.location.href = gotoUrl;
-        //     }
-        // } catch(error) {
-        //     window.location.href = $.giopLoginURL + window.location.href.split('?')[0];
-        // }
+        try {
+            let gotoUrl = error.response.data.goto;//http://10.1.253.99:8180/AIOps/login?goto=http://localhost:8066/AIOps/opcomponent/abnormal
+            if(gotoUrl == null) {
+                window.location.href = _BASE.giopLoginURL + window.location.href.split('?')[0];
+            } else {
+                window.location.href = gotoUrl;
+            }
+        } catch(error) {
+            window.location.href = _BASE.giopLoginURL + window.location.href.split('?')[0];
+        }
         //跳转到错误页面 需后台一起修改 http://10.1.253.97:8087/giop/msgpage/error.min.html
-        let toPage = error.response.data.goto;
+       // let toPage = error.response.data.goto;
         //let a = 'http://localhost:8066/AIOps/msgpage/noauth';
-        window.location.href = toPage;
+        //window.location.href = toPage;
         return Promise.reject(error);
     }
     return Promise.reject(error);

@@ -182,9 +182,6 @@ export default {
         var callUrl = window.location.href.split("?")[1];
         callUrl = callUrl ? callUrl.substr(5) : ""; //截取goto=后面的url并跳转
         var sucUrl = callUrl ? callUrl : this.$BASE.forward;
-        //  this.$router.push({
-        //     path: sucUrl
-        //  });
         window.location.href = sucUrl;
       }
       if (res.status == "201") {
