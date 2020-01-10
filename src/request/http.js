@@ -76,9 +76,8 @@ axios.interceptors.response.use(function (response) {
         // }
         //跳转到错误页面 需后台一起修改 http://10.1.253.97:8087/giop/msgpage/error.min.html
         let toPage = error.response.data.goto;
-        router.replace({
-            path: '/error' //待修改为toPage
-        });
+        //let a = 'http://localhost:8066/AIOps/msgpage/noauth';
+        window.location.href = toPage;
         return Promise.reject(error);
     }
     return Promise.reject(error);

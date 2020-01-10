@@ -584,7 +584,7 @@ export default {
           return {
             id: item.id,
             shape: item.shape,
-            image: (item.image).replace('/public', ''),
+            image: (item.image).replace('/giop/public', ''),
             label: item.label,
             level:item.level
           };
