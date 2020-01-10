@@ -60,7 +60,7 @@
 				<div class="gi-table-wrp">
 					<a-table :scroll='{x:1200}'  bordered :columns="columns" :data-source="data" :pagination="pagination" @change="handleTableChange" :loading="loading">
 						<!--tooltip提示-->
-						<span v-for="(item,index) in columns" :key="index" :slot="item.dataIndex" slot-scope="text,record">
+						<span v-for="(item,index) in columns" :key="index" :slot="item.dataIndex" slot-scope="text">
 							<a-tooltip>
 						        <template slot="title">
 						         	{{text}}
@@ -69,7 +69,7 @@
 							</a-tooltip>
 						</span>
 						<!--告警描述鼠标经过提示框错位 增加placement-->
-						<span slot="alarmDesc" slot-scope="text,record">
+						<span slot="alarmDesc" slot-scope="text">
 							<a-tooltip placement="left">
 						        <template slot="title">
 						         	{{text}}
@@ -110,7 +110,7 @@
 				<div class="sec-table-wrp">
 					<a-table :scroll='{x:1200}' bordered :columns="columnsSec" :data-source="dataSec" :pagination="false" :loading="loading">
 						<!--tooltip 提示-->
-						<span v-for="(item,index) in columnsSec" :key="index" :slot="item.dataIndex" slot-scope="text,record">
+						<span v-for="(item,index) in columnsSec" :key="index" :slot="item.dataIndex" slot-scope="text">
 							<a-tooltip>
 						        <template slot="title">
 						         	{{text}}
@@ -119,7 +119,7 @@
 							</a-tooltip>
 						</span>
 						<!--告警描述鼠标经过提示框错位 增加placement-->
-						<span slot="rcAlarmDesc" slot-scope="text,record">
+						<span slot="rcAlarmDesc" slot-scope="text">
 							<a-tooltip placement="left">
 						        <template slot="title">
 						         	{{text}}
