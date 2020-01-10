@@ -57,6 +57,15 @@ const routes = [{
     }
   },
   {
+    path: '/opcomponent/caposition',
+    name: 'caposition',
+    component: () => import('../views/Caposition.vue'),
+    meta: {
+      title: '告警根因定位',
+      breadcrumbList: ['智能组件', '告警根因分析', '告警根因定位']
+    }
+  },
+  {
     path: '/msgpage/error',
     name: 'error',
     component: () => import('../views/error.vue'),

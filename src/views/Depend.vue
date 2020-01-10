@@ -1,5 +1,11 @@
 <template>
-  <div class="caposition">
+  <div class="depend">
+     <!-- 加载中 -->
+		<div class="gi-loading" v-show="loadingGi">
+			<a-spin  tip="加载中...">
+				<a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
+			</a-spin>
+		</div>
     <div class="gi-outer-wrp">
       <!-- 查询条件 -->
       <div class="gi-search-wrp">
@@ -259,8 +265,6 @@ export default {
       loadingGi: false,
       showMaxBtn: false,
       network1: null,
-      visNodes:[],
-      visEdges:[],
       network2: null,
       showVisMax: false,
       visData: null
@@ -279,31 +283,19 @@ export default {
         return;
       }
       if (that.searchs.domain) {
-        if (
-          that.searchs.masterDeviceType == undefined &&
-          that.searchs.masterTitle
-        ) {
+        if (that.searchs.masterDeviceType == undefined &&that.searchs.masterTitle) {
           that.$message.error("请选择主告警对象类型");
           return;
         }
-        if (
-          that.searchs.masterDeviceType &&
-          that.searchs.masterTitle == undefined
-        ) {
+        if ( that.searchs.masterDeviceType &&that.searchs.masterTitle == undefined) {
           that.$message.error("请选择主告警标题");
           return;
         }
-        if (
-          that.searchs.slaveDeviceType == undefined &&
-          that.searchs.slaveTitle
-        ) {
+        if ( that.searchs.slaveDeviceType == undefined &&that.searchs.slaveTitle) {
           that.$message.error("请选择次告警对象类型");
           return;
         }
-        if (
-          that.searchs.slaveDeviceType &&
-          that.searchs.slaveTitle == undefined
-        ) {
+        if (that.searchs.slaveDeviceType &&that.searchs.slaveTitle == undefined) {
           that.$message.error("请选择次告警标题");
           return;
         }
@@ -333,28 +325,24 @@ export default {
     },
     //渲染vis
     async showVis(params = {}) {
-      var that = this;
-      if (that.network1) {
-        that.network1.destroy();
+      if (this.network1) {
+        this.network1.destroy();
       }
-      that.showMaxBtn = false;
-      let requestData = {
-        ...params,
-        ...that.searchs
-      };
-      that.loadingGi = true;
+      this.showMaxBtn = false;
+      let requestData = {...params, ...this.searchs};
+      this.loadingGi = true;
       let res = await rerulesVis(requestData);
-      that.loadingGi = false;
+      this.loadingGi = false;
       if (res.status == "407") {
-        that.$message.error("告警关系数据过多无法展示，请输入查询条件", 3);
+        this.$message.error("告警关系数据过多无法展示，请输入查询条件", 3);
       }
       if (res.status == "200") {
         //渲染vis
-        that.visData = res.rows;
+        this.visData = res.rows;
         if (res.rows.nodes.length > 0) {
-          that.showNodata = false;
+          this.showNodata = false;
         } else {
-          that.showNodata = true;
+          this.showNodata = true;
         }
         //修改后台返回图片的路径
         let nodesNew = this.returnNewnodes(res.rows.nodes);
@@ -365,12 +353,12 @@ export default {
           nodes: nodes,
           edges: edges
         };
-        that.network1 = new vis.Network(containerVis, dataVis, optionsVis);
-        that.showMaxBtn = true;
-        that.dataSec = res.rows.recordList;
+        this.network1 = new vis.Network(containerVis, dataVis, optionsVis);
+        this.showMaxBtn = true;
+        this.dataSec = res.rows.recordList;
       }
       if (res.status == "201") {
-        that.$message.error(res.message, 3);
+        this.$message.error(res.message, 3);
       }
     },
     //修改后台返回的图片路径

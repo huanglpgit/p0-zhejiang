@@ -78,3 +78,24 @@ export const rerulesVis = (params={}) => aiopsGet({
     //url:'/json/vis.json',
     params: params
 });
+//智能组件-告警根因分析-告警根因定位=====================================================================
+//训练分组
+export const getDomainsCause = () => aiopsGet({
+    url: '/api/alarmanalysis/api/giop/rootCauseLocation/domain'
+});
+//告警对象类型（可输入下拉框）
+export const getMasterTypesCause = (params={}) => aiopsGet({
+    url: '/api/alarmanalysis/api/giop/rootCauseLocation/alarmTypeLenovo',
+    params: params
+});
+//列表-第一屏
+export const tbCaposition = (params={}) => aiopsGet({
+    url: '/api/alarmanalysis/api/giop/rootCauseLocation/list',
+    params: params
+});
+//第二屏 根因拓扑图
+export const capositionVis = (params={}) => aiopsGet({
+    url: '/api/alarmanalysis/api/giop/rootCauseLocation/listBySeqNo',
+    //url:'/json/vis.json',
+    params: params
+});
