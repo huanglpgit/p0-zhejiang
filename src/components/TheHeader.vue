@@ -62,9 +62,19 @@ export default {
   },
   created() {
     document.title="异常检测";
-    this.loadMenus();
+    let token = this.getCookie("token");
+    if(token){//登录页面不请求头部接口
+       this.loadMenus();
+    }
   },
   methods: {
+    getCookie(name) {
+      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+      if (arr = document.cookie.match(reg))
+        return unescape(arr[2]);
+      else
+        return null;
+    },
     handleClick(e) {
       this.current = e.key;
     },
