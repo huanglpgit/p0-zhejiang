@@ -2,7 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Abnormal from '../views/Abnormal.vue'
 
+import _BASE from "../config/base";
+
 Vue.use(VueRouter)
+
+
 
 const routes = [
   {
@@ -78,7 +82,7 @@ const routes = [
 ]
 const router = new VueRouter({
   mode: 'history',
-  base: '/AIOps',
+  base: _BASE.APP_NAME,//页面访问路径前加上项目前缀
   routes // (缩写) 相当于 routes: routes
 })
 

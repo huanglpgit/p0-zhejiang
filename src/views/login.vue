@@ -159,7 +159,7 @@ export default {
     return {
       formLayout: "horizontal",
       form: this.$form.createForm(this, { name: "loginForm" }),
-      captchaSrc: "/api/security/captcha?_=" + Math.random(),
+      captchaSrc: this.$BASE.urlPrefix+"/security/captcha?_=" + Math.random(),
       validateRules: {
         username: [{ required: true, message: "请输入用户名" }],
         password: [{ required: true, message: "请输入密码" }],
@@ -173,7 +173,7 @@ export default {
   methods: {
     //点击切换验证码
     changeCaptcha() {
-      this.captchaSrc = "/AIOps/api/security/captcha?_=" + Math.random();
+      this.captchaSrc = this.$BASE.urlPrefix+"/security/captcha?_=" + Math.random();
     },
     //登录
     async loginFun(formData) {
