@@ -6,22 +6,21 @@
       </a>
     </div>
     <div class="center-menu">
-      <a-menu @click="handleClick" v-model="current" style="width: 100%" mode="horizontal" theme="dark">
+      <a-menu @click="handleClick" :selectedKeys="[$route.path]" style="width: 100%" mode="horizontal" theme="dark">
         <a-sub-menu class="leve1-has-children" v-for="item in headerMenus" :key="item.menuId">
           <span slot="title">{{item.menuName}}</span>
-          <template v-if="item.children.length>0" v-for="level2 in item.children">
-            <a-menu-item v-if="!level2.children" :key="level2.menuId">
-              <router-link :to="level2.menuUrl">{{level2.menuName}}</router-link>|
-              <!-- <a :href="level2.menuUrl" rel="noopener noreferrer">{{level2.menuName}}</a> -->
+          <!--  v-if="item.children.length>0" -->
+          <template v-for="level2 in item.children">
+            <a-menu-item v-show="!level2.children" :key="level2.menuUrl">
+              <router-link :to="level2.menuUrl">{{level2.menuName}}</router-link>
             </a-menu-item>
             <a-sub-menu
               class="submenu-level2"
-              v-if="level2.children"
               :key="level2.menuId"
+              v-show="level2.children"
               :title="level2.menuName"
             >
-              <a-menu-item v-for="level3 in level2.children" :key="level3.menuId">
-                <!-- <a :href="level3.menuUrl" rel="noopener noreferrer">{{level3.menuName}}</a> -->
+              <a-menu-item v-for="level3 in level2.children" :key="level3.menuUrl">
                 <router-link :to="level3.menuUrl">{{level3.menuName}}</router-link>|
               </a-menu-item>
             </a-sub-menu>
@@ -56,15 +55,11 @@ export default {
   name: "TheHeader",
   data() {
     return {
-      headerMenus: [],
-      current: [2]//默认登录过来后的首页 menuId 异常检测的menuId是2
+      headerMenus: []
     };
   },
   created() {
-    let token = this.getCookie("token");
-    if(token){//登录页面不请求头部接口
-       this.loadMenus();
-    }
+      this.loadMenus();
   },
   methods: {
     getCookie(name) {
@@ -75,7 +70,7 @@ export default {
         return null;
     },
     handleClick(e) {
-      this.current = e.key;
+      //this.current = e.key;
     },
     //获取菜单
     async loadMenus() {
