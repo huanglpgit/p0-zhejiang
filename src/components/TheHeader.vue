@@ -12,7 +12,7 @@
           <!--  v-if="item.children.length>0" -->
           <template v-for="level2 in item.children">
             <a-menu-item v-show="!level2.children" :key="level2.menuUrl">
-              <router-link :to="level2.menuUrl">{{level2.menuName}}</router-link>
+              <router-link :to="{path:level2.menuUrl}">{{level2.menuName}}</router-link>
             </a-menu-item>
             <a-sub-menu
               class="submenu-level2"
@@ -21,7 +21,7 @@
               :title="level2.menuName"
             >
               <a-menu-item v-for="level3 in level2.children" :key="level3.menuUrl">
-                <router-link :to="level3.menuUrl">{{level3.menuName}}</router-link>|
+                <router-link :to="{path:level3.menuUrl}">{{level3.menuName}}</router-link>|
               </a-menu-item>
             </a-sub-menu>
           </template>
@@ -55,12 +55,19 @@ export default {
   name: "TheHeader",
   data() {
     return {
-      headerMenus: []
+      headerMenus: [],
+      openKeys:[]
     };
   },
   created() {
       this.loadMenus();
   },
+  // watch: {
+  //     openKeys(val) {
+  //       this.openKeys = val;
+  //       console.log('openKeys', val);
+  //     },
+  //   },
   methods: {
     getCookie(name) {
       var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
