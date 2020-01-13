@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Abnormal from '../views/Abnormal.vue'
+import Login from '../views/login.vue'
 
 import _BASE from "../config/base";
 
@@ -16,7 +16,7 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/login.vue'),
+    component: Login,
     meta: {
       title: '登录',
       breadcrumbList: []
@@ -25,7 +25,7 @@ const routes = [
   {
     path: '/opcomponent/abnormal',
     name: 'abnormal',
-    component: Abnormal,
+    component: () => import('../views/Abnormal.vue'),
     meta: {
       title: '异常检测',
       breadcrumbList: ['智能组件', '异常检测']

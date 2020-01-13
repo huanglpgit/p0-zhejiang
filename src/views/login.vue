@@ -11,13 +11,14 @@
               <a-form-item>
                 <a-input
                   placeholder="用户名"
-                  aria-autocomplete="off"
+                  autocomplete="off"
                   v-decorator="['username',{rules: validateRules.username}]"
                 />
               </a-form-item>
               <a-form-item>
                 <a-input
                   placeholder="密 码"
+                  autocomplete="off"
                   type="password"
                   v-decorator="['password',{rules: validateRules.password}]"
                 />

@@ -61,7 +61,6 @@ export default {
     };
   },
   created() {
-    document.title="异常检测";
     let token = this.getCookie("token");
     if(token){//登录页面不请求头部接口
        this.loadMenus();
@@ -95,7 +94,7 @@ export default {
         window.location.href = this.$BASE.giopLoginURL;
       }
       if (res.status == "201") {
-        this.$message.error(res.data.message);
+        this.$message.error(res.message);
         return;
       }
     },
