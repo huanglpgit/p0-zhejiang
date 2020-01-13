@@ -180,7 +180,7 @@ export default {
       let res = await pLogin(formData);
       if (res.status == "200") {
         var callUrl = window.location.href.split("?")[1];
-        callUrl = callUrl ? callUrl.substr(5) : ""; //截取goto=后面的url并跳转
+        callUrl = callUrl ? decodeURIComponent(callUrl.substr(5)) : ""; //截取goto=后面的url并跳转 decodeURIComponent vue下url乱码解码
         var sucUrl = callUrl ? callUrl : this.$BASE.forward;
         window.location.href = sucUrl;
       }

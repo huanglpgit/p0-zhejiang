@@ -2,6 +2,8 @@
 
 
 
+// 引入@babel/polyfill处理兼容 ie
+import "@babel/polyfill";
 
 import Vue from 'vue';
 import Antd from 'ant-design-vue';
@@ -13,8 +15,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import echarts from 'echarts' //引入echarts
 Vue.prototype.$echarts = echarts //引入组件
 //拖拽组件
-import VueDraggableResizable from 'vue-draggable-resizable';
-Vue.component('vue-draggable-resizable', VueDraggableResizable);
+// import VueDraggableResizable from 'vue-draggable-resizable';
+// Vue.component('vue-draggable-resizable', VueDraggableResizable);
 //基本配置信息
 import BASE from "../src/config/base";
 import App from './App';
