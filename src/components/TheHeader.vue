@@ -48,7 +48,7 @@
   </div>
 </template>
 <style lang="less" scoped>
-@import "../../public/less/giop-default";
+// @import "../../public/less/giop-default";
 </style>
 <script>
 import { getMenus, pLogout } from "../request/api";

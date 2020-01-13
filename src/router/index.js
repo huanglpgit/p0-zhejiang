@@ -77,8 +77,8 @@ const routes = [
       title: '无权限'
     }
   },
-  //404页面 需要放在最后
-  //{ path: '*', component: NotFoundComponent }
+  //404页面直接跳到登录页面 需要放在最后
+  { path: '*', redirect: '/login' }
 ]
 const router = new VueRouter({
   mode: 'history',
