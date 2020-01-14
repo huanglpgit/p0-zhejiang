@@ -251,13 +251,17 @@ a {
 }
 .ant-menu-dark  .leve1-has-children.ant-menu-submenu-selected .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before,
 .ant-menu-dark  .leve1-has-children.ant-menu-submenu-selected .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after,
+.ant-menu-dark  .leve1-has-children.ant-menu-submenu-selected .ant-menu-submenu-title > .ant-menu-submenu-arrow::before,
+.ant-menu-dark  .leve1-has-children.ant-menu-submenu-selected .ant-menu-submenu-title > .ant-menu-submenu-arrow::after,
+.ant-menu-dark  .leve1-has-children.ant-menu-submenu-active .ant-menu-submenu-title > .ant-menu-submenu-arrow::before,
+.ant-menu-dark  .leve1-has-children.ant-menu-submenu-active .ant-menu-submenu-title > .ant-menu-submenu-arrow::after,
 .ant-menu-dark  .leve1-has-children .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before,
 .ant-menu-dark  .leve1-has-children .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after{
     background: @color-pri;
 }
 .ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::before,
 .ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::after{
-    background: @color-pri;
+    background:#fff;
     position: absolute;
     width: 6px;
     height: 1.5px;
@@ -308,14 +312,13 @@ a {
 
 .ant-menu-dark .ant-menu-item:hover,
 .ant-menu-dark .ant-menu-item-active,
-.ant-menu-dark .ant-menu-submenu-active,
 .ant-menu-dark .ant-menu-submenu-open,
 .ant-menu-dark .ant-menu-submenu-selected,
 .ant-menu-dark .ant-menu-submenu-title:hover {
     color: @color-pri !important;
 }
-
 .ant-menu-dark .submenu-level2.ant-menu-submenu-selected,
+.ant-menu-dark .submenu-level2.ant-menu-submenu-active,
 .ant-menu-dark .submenu-level2 .ant-menu-submenu-title:hover {
     color: #fff !important;
 }
