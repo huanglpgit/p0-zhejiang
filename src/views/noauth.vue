@@ -22,23 +22,19 @@ export default {
 </script>
 <style lang="less" scoped>
 .errorCss {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				height: 100%;
-				height: calc(100vh - 60px);
-			}
-			
-			.errorText {
-				font-family: MicrosoftYaHei;
-				font-size: 14px;
-				color: #A2B0C4;
-				letter-spacing: 1.05px;
-			}
-			.ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::before,
-			.ant-menu-dark .leve1-has-children .ant-menu-submenu-title>.ant-menu-submenu-arrow::after {
-				background: #fff !important;
-			}
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	height: calc(100vh - 60px);
+}
+
+.errorText {
+	font-family: MicrosoftYaHei;
+	font-size: 14px;
+	color: #A2B0C4;
+	letter-spacing: 1.05px;
+}
 </style>
 
 

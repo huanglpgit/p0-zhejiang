@@ -33,17 +33,6 @@ export default {
   color: #a2b0c4;
   letter-spacing: 1.05px;
 }
-
-.ant-menu-dark
-  .leve1-has-children
-  .ant-menu-submenu-title
-  > .ant-menu-submenu-arrow::before,
-.ant-menu-dark
-  .leve1-has-children
-  .ant-menu-submenu-title
-  > .ant-menu-submenu-arrow::after {
-  background: #fff !important;
-}
 </style>
 
 
