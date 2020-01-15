@@ -93,7 +93,7 @@ export default {
       var res = await pLogout();
       if (res.status == "200") {
         //跳转到登录页面
-        window.location.href = this.$BASE.giopLoginURL;
+        window.location.href = process.env.VUE_APP_giopLoginURL;
       }
       if (res.status == "201") {
         this.$message.error(res.message);

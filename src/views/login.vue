@@ -160,7 +160,7 @@ export default {
     return {
       formLayout: "horizontal",
       form: this.$form.createForm(this, { name: "loginForm" }),
-      captchaSrc: this.$BASE.urlPrefix+"/security/captcha?_=" + Math.random(),
+      captchaSrc: process.env.VUE_APP_urlPrefix + "/security/captcha?_=" + Math.random(),
       validateRules: {
         username: [{ required: true, message: "请输入用户名" }],
         password: [{ required: true, message: "请输入密码" }],
@@ -171,7 +171,7 @@ export default {
   methods: {
     //点击切换验证码
     changeCaptcha() {
-      this.captchaSrc = this.$BASE.urlPrefix+"/security/captcha?_=" + Math.random();
+      this.captchaSrc = process.env.VUE_APP_urlPrefix + "/security/captcha?_=" + Math.random();
     },
     //登录
     async loginFun(formData) {
@@ -179,7 +179,7 @@ export default {
       if (res.status == "200") {
         var callUrl = window.location.href.split("?")[1];
         callUrl = callUrl ? decodeURIComponent(callUrl.substr(5)) : ""; //截取goto=后面的url并跳转 decodeURIComponent vue下url乱码解码
-        var sucUrl = callUrl ? callUrl : this.$BASE.forward;
+        var sucUrl = callUrl ? callUrl : process.env.VUE_APP_forward;
         window.location.href = sucUrl;
       }
       if (res.status == "201") {
