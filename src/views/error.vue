@@ -12,10 +12,7 @@
 </template>
 <script>
 export default {
-  name: "error",
-  created() {
-    document.title = "错误页面";
-  }
+  name: "error"
 };
 </script>
 <style lang="less" scoped>

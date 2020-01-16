@@ -169,6 +169,9 @@ export default {
       }
     };
   },
+  created(){
+    document.title = "登录";
+  },
   methods: {
     //点击切换验证码
     changeCaptcha() {

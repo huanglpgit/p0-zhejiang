@@ -40,3 +40,11 @@ router.beforeEach((to, from, next) => {
   }
   next()
 })
+//解决刷新页面后title变为index.html中title问题
+router.afterEach(route => {
+  // 从路由的元信息中获取 title 属性
+  if (route.meta.title) {
+    document.title = route.meta.title;
+  }
+});
+

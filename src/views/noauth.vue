@@ -12,10 +12,7 @@
 </template>
 <script>
 export default {
-  name: "noauth",
-  created() {
-    document.title = "无权限";
-  }
+  name: "noauth"
 };
 </script>
 <style lang="less" scoped>

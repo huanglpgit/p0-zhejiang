@@ -304,7 +304,6 @@ export default {
     };
   },
   created() {
-    document.title = "异常检测";
     this.getListZhuanye();
   },
   methods: {
