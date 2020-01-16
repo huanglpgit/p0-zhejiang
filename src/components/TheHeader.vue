@@ -6,7 +6,13 @@
       </a>
     </div>
     <div class="center-menu">
-      <a-menu @click="handleClick" :selectedKeys="[$route.path]" style="width: 100%" mode="horizontal" theme="dark">
+      <a-menu
+        @click="handleClick"
+        :selectedKeys="[$route.path]"
+        style="width: 100%"
+        mode="horizontal"
+        theme="dark"
+      >
         <a-sub-menu class="leve1-has-children" v-for="item in headerMenus" :key="item.menuId">
           <span slot="title">{{item.menuName}}</span>
           <!--  v-if="item.children.length>0" -->
@@ -56,11 +62,11 @@ export default {
   data() {
     return {
       headerMenus: [],
-      openKeys:[]
+      openKeys: []
     };
   },
   created() {
-      this.loadMenus();
+    this.loadMenus();
   },
   // watch: {
   //     openKeys(val) {
@@ -70,13 +76,12 @@ export default {
   //   },
   methods: {
     getCookie(name) {
-      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-      if (arr = document.cookie.match(reg))
-        return unescape(arr[2]);
-      else
-        return null;
+      var arr,
+        reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+      if ((arr = document.cookie.match(reg))) return unescape(arr[2]);
+      else return null;
     },
-    handleClick(e) {
+    handleClick() {
       //this.current = e.key;
     },
     //获取菜单

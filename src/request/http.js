@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Vue from 'vue';
-import qs from 'qs'
 import {
     message
 } from "ant-design-vue";
@@ -105,7 +104,7 @@ export function fetch(option) {
             reject(err);
         });
     });
-};
+}
 //post 方法
 export function aiopsPost(option) {
     let defaultOps = {
@@ -134,7 +133,7 @@ export function aiopsPost(option) {
             reject(err);
         });
     });
-};
+}
 //get 方法
 export function aiopsGet(option) {
     let defaultOps = {
@@ -166,6 +165,6 @@ export function aiopsGet(option) {
             reject(err);
         });
     });
-};
+}
 Vue.prototype.$fetch = fetch;
 Vue.prototype.$aiopsPost = aiopsPost;

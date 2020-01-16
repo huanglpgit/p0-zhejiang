@@ -1,10 +1,5 @@
-
-
-
-
-// 引入@babel/polyfill处理兼容 ie
+//引入@babel/polyfill处理兼容 ie
 import "@babel/polyfill";
-
 import Vue from 'vue';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
@@ -12,8 +7,8 @@ import 'ant-design-vue/dist/antd.css';
 import {Loading} from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //echarts 建议改成按需引入
-import echarts from 'echarts' //引入echarts
-Vue.prototype.$echarts = echarts //引入组件
+import echarts from 'echarts';
+Vue.prototype.$echarts = echarts;
 //拖拽组件
 // import VueDraggableResizable from 'vue-draggable-resizable';
 // Vue.component('vue-draggable-resizable', VueDraggableResizable);
@@ -32,12 +27,12 @@ Vue.config.productionTip = false;
 
 Vue.use(Antd);
 Vue.use(Loading);
-
+/* eslint-disable no-new */
 new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
-
+/* eslint-disable */
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */
   if (to.meta.title) {

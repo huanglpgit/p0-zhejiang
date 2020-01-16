@@ -2,7 +2,7 @@
   <div class="page-error">
     <div class="errorCss">
       <div>
-       <img src="../../public/images/error.svg" width="235" height="120" alt />
+        <img src="../../public/images/error.svg" width="235" height="120" alt />
       </div>
       <div>
         <p class="errorText">界面打开异常，请联系系统管理员进行处理</p>
@@ -13,8 +13,8 @@
 <script>
 export default {
   name: "error",
-  created(){
-    document.title = "错误页面"
+  created() {
+    document.title = "错误页面";
   }
 };
 </script>

@@ -1,11 +1,11 @@
 <template>
   <div class="depend">
-     <!-- 加载中 -->
-		<div class="gi-loading" v-show="loadingGi">
-			<a-spin  tip="加载中...">
-				<a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
-			</a-spin>
-		</div>
+    <!-- 加载中 -->
+    <div class="gi-loading" v-show="loadingGi">
+      <a-spin tip="加载中...">
+        <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
+      </a-spin>
+    </div>
     <div class="gi-outer-wrp">
       <!-- 查询条件 -->
       <div class="gi-search-wrp">
@@ -276,26 +276,38 @@ export default {
   },
   methods: {
     //查询
-    showVisSearch(params = {}) {
+    showVisSearch() {
       var that = this;
       if (!that.searchs.domain) {
         that.$message.error("请选择训练分组!");
         return;
       }
       if (that.searchs.domain) {
-        if (that.searchs.masterDeviceType == undefined &&that.searchs.masterTitle) {
+        if (
+          that.searchs.masterDeviceType == undefined &&
+          that.searchs.masterTitle
+        ) {
           that.$message.error("请选择主告警对象类型");
           return;
         }
-        if ( that.searchs.masterDeviceType &&that.searchs.masterTitle == undefined) {
+        if (
+          that.searchs.masterDeviceType &&
+          that.searchs.masterTitle == undefined
+        ) {
           that.$message.error("请选择主告警标题");
           return;
         }
-        if ( that.searchs.slaveDeviceType == undefined &&that.searchs.slaveTitle) {
+        if (
+          that.searchs.slaveDeviceType == undefined &&
+          that.searchs.slaveTitle
+        ) {
           that.$message.error("请选择次告警对象类型");
           return;
         }
-        if (that.searchs.slaveDeviceType &&that.searchs.slaveTitle == undefined) {
+        if (
+          that.searchs.slaveDeviceType &&
+          that.searchs.slaveTitle == undefined
+        ) {
           that.$message.error("请选择次告警标题");
           return;
         }
@@ -327,7 +339,7 @@ export default {
         this.network1.destroy();
       }
       this.showMaxBtn = false;
-      let requestData = {...params, ...this.searchs};
+      let requestData = { ...params, ...this.searchs };
       this.loadingGi = true;
       let res = await rerulesVis(requestData);
       this.loadingGi = false;
@@ -358,7 +370,7 @@ export default {
       }
     },
     //资源域  训练分组
-    async getListDomain(params = {}) {
+    async getListDomain() {
       var res = await getDomains();
       this.domainList = res.status == "200" ? res.data : [];
     },
@@ -416,12 +428,12 @@ export default {
       this.getListMasterType(value);
       this.getListSlaveType(value);
     },
-    masterDeviceTypeChange(value) {
+    masterDeviceTypeChange() {
       this.masterTitleList = [];
       this.searchs.masterTitle = undefined;
       //this.autocompleteSearch('');//默认传'' 鼠标放入主告警输入框就就有下拉选择
     },
-    slaveDeviceTypeChange(value) {
+    slaveDeviceTypeChange() {
       this.slaveTitleList = [];
       this.searchs.slaveTitle = undefined;
       //this.autocompleteSlave('');//默认传'' 鼠标放入主告警输入框就就有下拉选择
