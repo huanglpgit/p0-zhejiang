@@ -12,15 +12,12 @@ Vue.prototype.$echarts = echarts;
 //拖拽组件
 // import VueDraggableResizable from 'vue-draggable-resizable';
 // Vue.component('vue-draggable-resizable', VueDraggableResizable);
-//基本配置信息
-// import BASE from "../src/config/base";  改为用.env.[mode]进行环境配置20200115
 import App from './App';
 
 
 import router from './router'
 import axios from 'axios'
 import qs from 'qs'
-// Vue.prototype.$BASE = BASE 
 Vue.prototype.$axios = axios    //全局注册，使用方法为:this.$axios
 Vue.prototype.qs = qs           //全局注册，使用方法为:this.qs
 Vue.config.productionTip = false;
